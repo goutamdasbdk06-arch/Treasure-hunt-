@@ -1,2 +1,0 @@
-# Treasure-hunt-
-Love Game

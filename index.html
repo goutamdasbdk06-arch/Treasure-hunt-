@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Love Treasure Hunt ❤️</title>
+
+<style>
+
+body{
+font-family:Arial;
+text-align:center;
+background:linear-gradient(135deg,#ff758c,#ff7eb3);
+color:white;
+}
+
+h1{
+margin-top:30px;
+}
+
+.box{
+background:white;
+color:#333;
+padding:20px;
+border-radius:10px;
+width:320px;
+margin:auto;
+margin-top:20px;
+}
+
+input{
+padding:8px;
+font-size:16px;
+margin-top:10px;
+width:80%;
+}
+
+button{
+padding:8px 16px;
+margin-top:10px;
+border:none;
+border-radius:20px;
+background:#ff4d6d;
+color:white;
+cursor:pointer;
+}
+
+#result{
+margin-top:10px;
+font-weight:bold;
+}
+
+#final{
+display:none;
+font-size:24px;
+margin-top:30px;
+}
+
+.hint{
+font-size:12px;
+color:#999;
+margin-top:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>❤️ Love Treasure Hunt ❤️</h1>
+<p>Solve all puzzles to unlock my heart</p>
+
+<div class="box">
+
+<p id="question"></p>
+
+<input id="answer" placeholder="Type your answer">
+
+<br>
+
+<button onclick="check()">Submit</button>
+
+<p id="result"></p>
+
+<p class="hint">Hint: Think carefully… some answers are simple.</p>
+
+</div>
+
+<div id="final">
+
+💎 TREASURE FOUND 💎  
+
+You solved every puzzle.  
+The final treasure is my heart ❤️  
+
+And it belongs only to you.
+
+</div>
+
+<script>
+
+let level=0
+
+let questions=[
+
+"Level 1: I have hands but cannot clap. I run but never walk. What am I?",
+
+"Level 2: What number comes next? 3, 6, 12, 24, ?",
+
+"Level 3: I speak without a mouth and hear without ears. What am I?",
+
+"Level 4: Who loves you more than anyone else in the universe?",
+
+"Level 5: Final password → Type the word that describes us: L _ V E"
+
+]
+
+let answers=[
+
+"clock",
+
+"48",
+
+"echo",
+
+"me",
+
+"love"
+
+]
+
+document.getElementById("question").innerText=questions[level]
+
+function check(){
+
+let user=document.getElementById("answer").value.toLowerCase()
+
+if(user===answers[level]){
+
+level++
+
+document.getElementById("result").innerHTML="Correct! Next level unlocked ❤️"
+
+document.getElementById("answer").value=""
+
+if(level<questions.length){
+
+document.getElementById("question").innerText=questions[level]
+
+}else{
+
+document.querySelector(".box").style.display="none"
+
+document.getElementById("final").style.display="block"
+
+}
+
+}else{
+
+document.getElementById("result").innerHTML="Wrong answer 😜 Try again"
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
